@@ -1,9 +1,9 @@
 <?php
 
 $servername="localhost";
-$username="id2474476_mohit";
-$password="mohit";
-$database="id2474476_poa"; 
+$username="root";
+$password="root";
+$database="blogtrial"; 
 
 
 
