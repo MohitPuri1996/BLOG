@@ -63,10 +63,10 @@ $result=mysqli_query($connect,$query);
       <div class='h1' id='try' style='background-image: url("<?php echo $img;?>");
 background-position: center;background-size:cover;'><a href='#'></a><?php }?>
 <div class='h2'>
-          <div class='fl'><span><a href="post.php?pid=<?php echo $row['id'];?>">  <?php echo $row['category'];?></a></span></div><br>
+          <div class='fl'><span><a href="category.php?pid=<?php echo $row['id'];?>">  <?php echo $row['category'];?></a></span></div><br>
           <div class='f2'><span><a href="post.php?pid=<?php echo $row['id'];?>">  <?php echo $row['title'];?>.</a></span></div>
           <br>
-          <div class='f3'><span><a href="post.php?pid=<?php echo $row['id'];?>"> <?php echo $row['author'];?></a></span></div>
+          <div class='f3'><span><a href="blogger.php?bid=<?php echo $row['id'];?>"> <?php echo $row['author'];?></a></span></div>
       </div>
        
         <div class='clear'></div>
@@ -171,7 +171,7 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
 											<header>
 												<h3><a href='#' id='genre'>Be the Best Version of you</a></h3>
 												<p>By: Prabhat Khanna</p>
-												<time class='published' datetime='2017-08-2'>August 2, 2017</time>
+												<time class='published' >Category Name Here</time>
 											</header>
 											<a href='#' class='image'><img src='img/poa.jpg' alt='' /></a>
 										</article>
