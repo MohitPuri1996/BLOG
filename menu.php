@@ -12,52 +12,8 @@ $query1="SELECT * FROM categories";
 
 <html>
 <head>
-    <style>
-        .resp-text {
-            font-size: 0.85em;
-        }
+   
         
-        @media screen and (max-width: 898px) and (mask: in-width: 520px) {
-            .resp-text {
-                font-size: 0.51em;
-            }
-            .foo-text {
-                font-size: 0.575em;
-            }
-        }
-        
-        @media screen and (max-width: 940px) and (min-width: 899px) {
-            .resp-text {
-                font-size: 0.53em;
-            }
-            #logo {
-                height: 3em;
-                width: 5em;
-            }
-            .foo-text {
-                font-size: 0.575em;
-            }
-        }
-        
-        @media screen and (max-width: 1360px) and (min-width: 1200px) {
-            .resp-text {
-                font-size: 0.81em;
-            }
-            .foo-text {
-                font-size: 0.85em;
-            }
-        }
-        
-        @media screen and (max-width: 1150px) and (min-width: 1000px) {
-            .resp-text {
-                font-size: 0.71em;
-            }
-            .foo-text {
-                font-size: 0.85em;
-            }
-        }
-        
-    </style>
 </head>
 
 <body style="overflow-x:hidden">
@@ -74,7 +30,11 @@ $query1="SELECT * FROM categories";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                         <a class="navbar-left" href="http://planofaction.in/blog" id="logo" style="float:left"><img src="img/logo.jpg" alt="" class="img-responsive"></a>
+=======
+                        <a class="navbar-left" href="index.php" id="logo" style="float:left"><img src="img/logo.jpg" alt="" class="img-responsive"></a>
+>>>>>>> d6b50480983b95cf39058442325e382bbaf57ae4
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

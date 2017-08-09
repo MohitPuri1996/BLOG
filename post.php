@@ -61,32 +61,32 @@ function setComments($connect)
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Plan of Action</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap Core CSS -->
+
+    <link href="css/blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="css/blog2.css" rel="stylesheet">
-    
-
-  
-
+<script>
+function Change()
+{
+ document.getElementById('like').innerHTML = 'Liked';
+ document.getElementById('btn-like').setAttribute("background-color", "red");
+}</script>
 </head>
 
 <body>
 <?php include("menu.html");?>
     <!-- Navigation -->
     <!-- Page Header -->
+<<<<<<< HEAD
     <br>
     <header class="masthead" style="background-image: url('img/post-bg.jpg')">
         <div class="container">
@@ -98,28 +98,68 @@ function setComments($connect)
                         <span class="meta">Posted by <a href="#">Anuj Garg</a> on August 2, 2017</span>
                     </div>
                 </div>
+=======
+    <div class="container" id="maincon">
+        <div id="postbackground" style="background-image: url('img/editedmen1.jpg')">
+        
+        <br>
+        <br>
+        <div class="container post-post">
+            <div class="row">
+                <div class="col-xs-11 col-lg-10 col-md-10 col-sm-11">
+                    <?php 
+         
+         
+//$query="SELECT * FROM posts WHERE category='$category'";
+
+$result1=mysqli_query($connect,$query);
+
+//echo $result1;
+        while ($row = mysqli_fetch_assoc($result1)){
+
+
+          ?>
+                    
+                    <a href="#" id="post-heading"><?php echo $row['title'];?></a>
+                    <br>
+                   <a href="index.php"><h5>HOME</h5></a>/<a href="category.php"><h5><?php echo $row['category'];?></h5></a>
+>>>>>>> d6b50480983b95cf39058442325e382bbaf57ae4
             </div>
         </div>
-    </header>
-
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-
-
+    </div>
+    </div>
+      <br>
+    <div class="blog">
+        <article>
+       
             <div class="row">
-                <div class="col-lg-12  col-md-10 offset-md-2" >
+<span class="meta">Posted by <a href="#"><?php echo $row['author'];?></a> on <?php echo $row['date'];?></span>
+
+ <div class="col-xs-12 col-lg-3 col-md-3 col-sm-12">
+     <a href="#" target="" onclick="Change();" ><button type="button" class="btn btn-like btn-md" id="btn-like"><i class="fa fa-thumbs-up " id="thumbs"> <b id="like">Like</b></i>|<b id="count">4321</b></button></a><!-- Twitter -->
+    </div>
+        </div>
+            <?php }?>
+            
+<br>
                                 <div class="row">
-    
- 
+                                    <br>              
+
     <!-- Facebook -->
-   <div class="col-xs-12 col-lg-4 col-md-6 col-sm-7"><a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.example.com&p[images][0]=&p[title]=Title%20Goes%20Here&p[summary]=Description%20goes%20here!" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=230'); return false"><button style="width:100%; margin-top:6px;" type="button" class="btn btn-facebook btn-lg"><i class="fa fa-facebook fa-2"></i> Share on Facebook</button></a><!-- Twitter -->
+   
+    <div class="col-xs-12 col-lg-3 col-md-3 col-sm-12"><div class="fb-share-button" data-href="http://planofaction.in/blog/post.php?pid=" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fplanofaction.in%2Fblog%2Fpost.php%3Fpid&amp;src=sdkpreparse"><button  type="button" class="btn btn-facebook btn-lg"><i class="fa fa-facebook fa-2"> Share on Facebook</i></button></a><!-- Twitter -->
     
-   </div>
-    <div class="col-xs-12 col-lg-4 col-md-6 col-sm-7">
-    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=230'); return false"><button style="width:100%; margin-top:6px;" type="button" class="btn btn-twitter btn-lg"><i class="fa fa-twitter fa-2"></i> Share on Twitter</button></a><!-- Twitter -->
+       </div></div>
+      
+    <div class="col-xs-12 col-lg-3 col-md-3 col-sm-12">
+    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=230'); return false"><button type="button" class="btn btn-twitter btn-lg"><i class="fa fa-twitter fa-2"> Share on Twitter</i></button></a><!-- Twitter -->
+    </div>
+   
+    <div class="col-xs-12 col-lg-3 col-md-3 col-sm-12">
+    <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=230'); return false"><button  type="button" class="btn btn-pinterest btn-lg"><i class="fa fa-pinterest fa-2"> Share on Pinterest</i></button></a><!-- Twitter -->
     </div>
     </div>
+
                         <?php 
          
          
@@ -131,16 +171,24 @@ $result1=mysqli_query($connect,$query);
 
 
           ?>
-                   
+        <br>    <div class="row col-xs-12 col-lg-12 col-md-12 col-sm-12">
+           
 <?php echo $row['body'];}?>
 
-                </div>
-            </div>
-        </div>
-    </article>
+               </div>
+           
 
+    </article>
+    </div>
     <hr>
+    <br>
+   
     
+    
+             </div>
+    
+    <br>
+         
     <!-- Blog Comments -->
 
                 <!-- Comments Form -->
