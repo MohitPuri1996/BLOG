@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include("/../connections/connections.php");
+include("../connections/connections.php");
 $result1="";
 $query1="SELECT * FROM categories";
  $result1 = mysqli_query($connect,$query1);

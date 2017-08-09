@@ -96,9 +96,9 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
                         <article class="mini-post col-xs-12 col-sm-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Lifestyle</a></h3>
+                                <h3><a href="category.php?cat=Lifestyle" id="genre">Lifestyle</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/1.jpg" alt="" /></a>
+                            <a href="category.php?cat=Lifestyle" class="image"><img src="img/1.jpg" alt="" /></a>
                         </article>
 
 
@@ -106,9 +106,9 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
                         <article class="mini-post col-xs-12 col-sm-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Entertainment</a></h3>
+                                <h3><a href="category.php?cat=Entertainment" id="genre">Entertainment</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/event.jpg" alt="" /></a>
+                            <a href="category.php?cat=Entertainment" class="image"><img src="img/event.jpg" alt="" /></a>
                         </article>
 
 
@@ -116,17 +116,17 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
                         <article class="mini-post col-xs-12 col-sm-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Art,Culture &amp; Heritage</a></h3>
+                                <h3><a href="category.php?cat=Art,Culture &amp; Heritage" id="genre">Art,Culture &amp; Heritage</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/3.jpg" alt="" /></a>
+                            <a href="category.php?cat=Art,Culture &amp; Heritage" class="image"><img src="img/3.jpg" alt="" /></a>
                         </article>
 
                         <article class="mini-post col-xs-12 col-sm-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Health &amp; Wellness</a></h3>
+                                <h3><a href="category.php?cat=Health &amp; Wellness" id="genre">Health &amp; Wellness</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/food.jpg" alt="" /></a>
+                            <a href="category.php?cat=Health &amp; Wellness" class="image"><img src="img/food.jpg" alt="" /></a>
                         </article>
 
 
@@ -134,17 +134,17 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
                         <article class="mini-post col-xs-12 col-sm-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Fashion &amp; Beauty</a></h3>
+                                <h3><a href="category.php?cat=Fashion &amp; Beauty" id="genre">Fashion &amp; Beauty</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/fashion.jpg" alt="" /></a>
+                            <a href="category.php?cat=Fashion &amp; Beauty" class="image"><img src="img/fashion.jpg" alt="" /></a>
                         </article>
 
                         <article class="mini-post col-sm-12 col-xs-12 col-lg-6 col-md-6">
 
                             <header>
-                                <h3><a href="" id="genre">Travel &amp; Adventure</a></h3>
+                                <h3><a href="category.php?cat=Travel &amp; Adventure" id="genre">Travel &amp; Adventure</a></h3>
                             </header>
-                            <a href="" class="image"><img src="img/travel.jpg" alt="" /></a>
+                            <a href="category.php?cat=Travel &amp; Adventure" class="image"><img src="img/travel.jpg" alt="" /></a>
                         </article>
 
                     </div>
@@ -163,20 +163,23 @@ background-position: center;background-size:cover;'><a href='#'></a><?php }?>
                             <h1 id="heading">Recommended for you</h1>
 
                             <?php 
-                            $p=0;
-                            while($p<4)
-                            {
-                                echo"<li style='padding:5px;'>
+                            $p=1;
+
+$query="SELECT * FROM posts LIMIT 4";
+$result=mysqli_query($connect,$query);
+                            while ($row = mysqli_fetch_assoc($result)){
+                            ?>
+                                <li style='padding:5px;'>
 										<article>
 											<header>
-												<h3><a href='#' id='genre'>Be the Best Version of you</a></h3>
-												<p>By: Prabhat Khanna</p>
-												<time class='published' datetime='2017-08-2'>August 2, 2017</time>
+												<h3><a href='post.php?pid=<?php echo $row['id'];?>' id='genre'><?php echo $row['title'];?></a></h3>
+												<p><?php echo $row['author'];?></p>
+												<time class='published' datetime='2017-08-2'><?php echo $row['date'];?></time>
 											</header>
-											<a href='#' class='image'><img src='img/poa.jpg' alt='' /></a>
+											<a href='post.php?pid=<?php echo $row['id'];?>' class='image'><img src='img/poa.jpg' alt='' /></a>
 										</article>
-									</li>";
-                                $p++;
+									</li>
+                              <?php 
                             }
                         ?>
 

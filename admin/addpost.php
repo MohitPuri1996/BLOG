@@ -1,6 +1,6 @@
 <?php
 include("includes/header.php");
-
+include("../connections/connections.php");
 if(isset($_GET['submit'])){
 echo "hi";
 $postname=$_GET['postname'];
@@ -8,6 +8,7 @@ $category=$_GET['select'];
 $date=$_GET['date'];
 $body=$_GET['body'];
 $aname=$_GET['aname'];
+$aname=$_GET['imgname'];
 
 echo $aname,$body;
 
@@ -25,7 +26,7 @@ $postname=mysqli_escape_string($connect,(filter_var(strip_tags($postname),FILTER
     $date=mysqli_escape_string($connect,filter_var(strip_tags($date),FILTER_SANITIZE_STRIPPED));
  $body=mysqli_escape_string($connect,filter_var(strip_tags($body),FILTER_SANITIZE_STRIPPED));
  $aname=mysqli_escape_string($connect,filter_var(strip_tags($aname),FILTER_SANITIZE_STRIPPED));
-
+ $imgname=mysqli_escape_string($connect,filter_var(strip_tags($imgname),FILTER_SANITIZE_STRIPPED));
 
 
 
@@ -33,7 +34,7 @@ $postname=mysqli_escape_string($connect,(filter_var(strip_tags($postname),FILTER
 
 if(empty($error)){  
 echo "hi";
-$sql="INSERT INTO posts(title,category,date,body,author) VALUES('$postname','$category','$date','$body','$aname')";
+$sql="INSERT INTO posts(title,category,date,body,author,imgname) VALUES('$postname','$category','$date','$body','$aname','$imgname')";
 
 echo "hi ";
 $result=mysqli_query($connect,$sql);
@@ -88,7 +89,7 @@ catch(\Exception $e){
                                     
                                  while ($row = mysqli_fetch_assoc($result1)) {
   ?>
-                                    <option value=<?php echo $row['catname'];?>-><?php echo $row['catname'];?></option>
+                                    <option value=<?php echo $row['catname'];?>><?php echo $row['catname'];?></option>
                                     <?php }?>
                                 </select>
                             </td>
@@ -115,10 +116,18 @@ catch(\Exception $e){
 
                         <tr>
                             <td>
-                                <label>Title</label>
+                                <label>Author Name</label>
                             </td>
                             <td>
                                 <input type="text" name="aname" placeholder="Enter Author name..." class="medium" />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <label>Image Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="imgname" placeholder="Enter Image name..." class="medium" />
                             </td>
                         </tr>
                      

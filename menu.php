@@ -74,7 +74,7 @@ $query1="SELECT * FROM categories";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                        <a class="navbar-left" href="#" id="logo" style="float:left"><img src="img/logo.jpg" alt="" class="img-responsive"></a>
+                        <a class="navbar-left" href="http://planofaction.in/blog" id="logo" style="float:left"><img src="img/logo.jpg" alt="" class="img-responsive"></a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

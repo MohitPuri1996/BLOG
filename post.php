@@ -3,11 +3,57 @@
 include("connections/connections.php");
 if(isset($_GET['pid'])){
  $postid=$_GET['pid'];
-
 $query="SELECT * FROM posts WHERE id='$postid'";
 }
+function setComments($connect)
+{
+   
+    if(isset($_POST['commentSubmit'])){
+        $name=$_POST['name'];
+        $date=$_POST['date'];
+        $message=$_POST['message'];
+         $postid=$_GET['pid'];
+
+        $sql="INSERT INTO comments(name,date,message,postid) VALUES('$name','$date','$message',$postid)";
+        $result=$connect->query($sql);
+    }
+    }
+
+
+//     function getComments($connect)
+//     {
+//          $postid=$_GET['pid'];
+//         $sql="SELECT * from comments where postid='$postid'";
+//         $result = $connect->query($sql);
+//         while($row=$result->fetch_assoc())
+//         {
+//             // echo "<div='comment-box'><p>";
+//             // echo $row['name']."<br>";
+//             // echo $row['date']."<br>";
+//             // echo $row['message']."<br><br>";
+//             // echo "</p></div>";
+            
+//             echo"                <div class='media'>";
+//                    echo" <a class='pull-left' href="#">";
+//                        echo" <img class='media-object' src='http://placehold.it/64x64' alt=''>";
+//                    echo" </a>
+//                     <div class='media-body'>";
+//                         echo "<h4 class='media-heading'>$row[name]
+//                             <small>$row['date']</small>
+//                         </h4>
+//                         $row['message']
+//                     </div>
+//                 </div>
+// ";
+//         }
+//     }
+
+
 
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,31 +84,18 @@ $query="SELECT * FROM posts WHERE id='$postid'";
 </head>
 
 <body>
-<?php include("menu.php");?>
+<?php include("menu.html");?>
     <!-- Navigation -->
     <!-- Page Header -->
     <br>
-    <header class="masthead" style="background-image: url('img/editedmen1.jpg')">
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                     <div class="post-heading">
-                    <?php 
-         
-         
-//$query="SELECT * FROM posts WHERE category='$category'";
-
-$result1=mysqli_query($connect,$query);
-
-//echo $result1;
-        while ($row = mysqli_fetch_assoc($result1)){
-
-
-          ?>
-                        <h1 style="font-size:35px"><?php echo $row['title'];?></h1>
-                        <a href="#" style="color:white;"><h5 class="category"><?php echo $row['category'];?></h5></a>
-                        <span class="meta">Posted by <a href="#"><?php echo $row['author'];?></a>   on  <?php echo $row['date'];?></span>
-                        <?php }?>
+                        <h1 style="font-size:35px">This Bhayankar Thandi Coffee In Gurugram Is A Liquid Hug For Your Brain!</h1>
+                        <a href="#" style="color:white;"><h5 class="category">FOOD AND LIFESTYLE</h5></a>
+                        <span class="meta">Posted by <a href="#">Anuj Garg</a> on August 2, 2017</span>
                     </div>
                 </div>
             </div>
@@ -109,55 +142,51 @@ $result1=mysqli_query($connect,$query);
     <hr>
     
     <!-- Blog Comments -->
-<div class="container">
-            <div class="row">
-                <div class="col-lg-12 offset-lg-2 col-md-10 offset-md-1">
 
                 <!-- Comments Form -->
-                <div class="well">
+                <!--<div class="well"> -->
+                    <div class="container">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    <?php
+                    echo "<form method='POST' action='".setComments($connect)."'>
+                       
+                            <input type='text' name='name' placeholder='Your Name'><br>
+                            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                            <textarea name='message' cols='50' rows='3' placeholder='Enter your comment'></textarea>
+                        
+                        <button type='submit' name='commentSubmit'>Comment</button>
+                    </form>";
+                    
+                    ?>
+                    </div>
+              
+<?php 
+$postid=$_GET['pid'];
+        $sql="SELECT * from comments where postid='$postid'";
+$result1=mysqli_query($connect,$sql);
+//echo $result1;
+        while ($row = mysqli_fetch_assoc($result1)){
+?><div class="container">
+                                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading"><?php echo $row['name'];?>
+                            <small><?php echo $row['date'];?></small>
+                        </h4>
+                       <?php echo $row['message'];?> 
+                    </div>
                 </div>
-
-                <hr>
+                </div>
+                
+<?php }?>
 
                 <!-- Posted Comments -->
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">NAME HERE
-                            <small>August 25, 2017 at 1:30 PM</small>
-                        </h4>
-                    Great Place. 
-                    </div>
-                </div>
+                
 
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">NAME HERE
-                            <small>August 25, 2017 at 5:00 PM</small>
-                        </h4>
-                        Nice Blog! 
-                    </div>
-                </div>
-
-            </div>
-
-            </div>
-</div>
+               
     <?php include("footer.html");?>
     
     <!-- Bootstrap core JavaScript -->
